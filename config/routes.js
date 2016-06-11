@@ -35,10 +35,10 @@ module.exports.routes = {
   '/': {
     view: 'homepage'
   },
-  '/load': 'ReviewsController.loader',  
-  '/api/all/stats': 'ReviewsController.allStats',
-  '/api/:airport/stats': 'ReviewsController.airportsats',
-  '/api/:airport/reviews': 'ReviewsController.airportreviews',
+  'get /load': 'ReviewsController.loader',  
+  'get /api/all/stats': 'ReviewsController.allStats',
+  'get /api/:airport/stats': 'ReviewsController.airportsats',
+  'get /api/:airport/reviews': 'ReviewsController.airportreviews',
 
 
   /***************************************************************************

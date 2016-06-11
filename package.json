@@ -5,6 +5,7 @@
   "description": "a Sails application",
   "keywords": [],
   "dependencies": {
+    "assert": "^1.4.1",
     "csvtojson": "^0.5.14",
     "ejs": "2.3.4",
     "grunt": "0.4.5",
@@ -20,11 +21,14 @@
     "grunt-sails-linker": "~0.10.1",
     "grunt-sync": "0.2.4",
     "include-all": "~0.1.6",
+    "mocha": "^2.5.3",
     "node-schedule": "^1.1.0",
     "rc": "1.0.1",
     "sails": "~0.12.3",
     "sails-disk": "~0.10.9",
-    "sails-mongo": "^0.12.0"
+    "sails-mongo": "^0.12.0",
+    "sinon": "^1.17.4",
+    "supertest": "^1.2.0"
   },
   "scripts": {
     "debug": "node debug app.js",

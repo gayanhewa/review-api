@@ -19,7 +19,6 @@ var self = module.exports = {
         conditions.push({ $limit: parseInt(params.limit) });
       }
 
-      console.log(conditions);
       if (err) return res.serverError(err);
        collection.aggregate(
        conditions,
@@ -39,16 +38,16 @@ var self = module.exports = {
       }  
 
       var conditions = [
-          {
-            $match: { airport_name: params.airport, overall_rating: { $gt: parseInt(params.min_overall_rating) }}
-          },
-          { $group: {
-              _id: "$airport_name",
-              count: { $sum: 1 },
-              overall_rating: { $avg: '$overall_rating'},
-              recommended: { $sum: '$recommended'}
-            }
-          },
+        {
+          $match: { airport_name: params.airport, overall_rating: { $gt: parseInt(params.min_overall_rating) }}
+        },
+        { $group: {
+            _id: "$airport_name",
+            count: { $sum: 1 },
+            overall_rating: { $avg: '$overall_rating'},
+            recommended: { $sum: '$recommended'}
+          }
+        },
         { $sort: { count: -1 } }
       ];
 
@@ -67,17 +66,17 @@ var self = module.exports = {
       params['min_overall_rating'] = 0;
     }  
     var conditions = { 
-        select: ['airport_name', 'overall_rating', 'recommended', 'author_country', 'content'], 
+        select: ['airport_name', 'overall_rating', 'recommended', 'author_country', 'content', 'date'], 
         where: {
           airport_name: params.airport,
-          overall_rating: { $gt: parseInt(params.min_overall_rating) }  
+          overall_rating: { $gte: parseInt(params.min_overall_rating) }  
         }, sort: 'date desc',
         limit: params.limit, 
         skip: params.offset
       };
 
-    Reviews.
-      find(conditions)
+    Reviews
+      .find(conditions)
       .exec(function(err, result) {
          if (err) {
             console.log(err);

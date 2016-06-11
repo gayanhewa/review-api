@@ -26,7 +26,7 @@ module.exports = function sendOK (data, options) {
 
   // Set status code
   res.status(200);
-
+  res.set('Content-Type', 'application/json');
   // If appropriate, serve data as JSON(P)
   // If views are disabled, revert to json
   if (req.wantsJSON || sails.config.hooks.views === false) {

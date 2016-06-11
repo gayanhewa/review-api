@@ -11,24 +11,13 @@
  */
 
 module.exports = {
-  // Overriding the db connection
-  connections: {
-      prodMongoServer: {
-        adapter: 'sails-mongo',
-        host: process.env.MONGO_HOST,
-        port: process.env.MONGO_PORT,
-        user: process.env.MONGO_UN,
-        password: process.env.MONGO_PW,
-        database: process.env.MONGO_DB //optional
-      }
-  },
   /***************************************************************************
    * Set the default database connection for models in the production        *
    * environment (see config/connections.js and config/models.js )           *
    ***************************************************************************/
 
   models: {
-    connection: 'prodMongoServer'
+    connection: 'localMongodbServer'
   },
   
   /***************************************************************************
