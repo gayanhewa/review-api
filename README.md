@@ -4,7 +4,7 @@ This application resutls in a set of public API's that any system can consume. T
 
 The application is build with SailsJS and MongoDB backend. 
  
- ## DB configuration
+## DB configuration
   In order to run the app successfully , ensure that the database connection seeting sare set properly. All values are set via ENV variables.
 
        
@@ -17,7 +17,7 @@ The application is build with SailsJS and MongoDB backend.
           database: process.env.MONGO_DB 
         }
     
- ## DataLoader 
+## DataLoader 
 
   The data loader will load the data from the csv provided once a month. This application is built under the assumption made from the spec , that the csv provided monthly is a complete dump of the review data. 
 
