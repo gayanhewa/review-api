@@ -10,7 +10,8 @@ module.exports = {
     // The env pass is to stop the data loader from running by mistake. This end point is for convinence purpose. 
     // Ideally the cronjob will execute this process once every month. 
     // REF : config/crontab.js
-    if (req.allParams().passcode == process.env.DATALOAD_PASS) {
+
+    if ((undefined != req.allParams().passcode)  && req.allParams().passcode == process.env.DATALOAD_PASS) {
       var dl = DataLoader;
       dl.load()
       return res.send("DataLoad Successful.");

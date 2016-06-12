@@ -31,15 +31,15 @@ The application is build with SailsJS and MongoDB backend.
   
     I have also hooked up a open route that will trigger the dataload asyncrhonously. 
 
-  ~
-    GET /load?passcode=DATALOAD_PASS
-  ~
+        ~
+          GET /load?passcode=DATALOAD_PASS
+        ~
 
  For the data loader to work properly we need to have the following env variables set 
  
   - AIRPORT_DATALOAD 
   
-    Path to the data load file , must be a local file path. 
+    Path to the data load file , must be a remote file path. 
 
   - DATALOAD_PASS 
     
@@ -67,8 +67,13 @@ Parameters :
    
 Parameters : 
    
-  - airport : name/key of the Airport
-  - min_overall_rating : Filter stats by minimum overall rating passed. Defaults to 0
+  - airport 
+
+  name/key of the Airport
+
+  - min_overall_rating 
+
+  Filter stats by minimum overall rating passed. Defaults to 0
 
 #### GET /api/:airport/reviews
   A collection of reviews for the given airport the collection should be ordered by “date”, so the latest review is returned as first element each review in the collection should have the following information:
