@@ -31,9 +31,9 @@ The application is build with SailsJS and MongoDB backend.
   
     I have also hooked up a open route that will trigger the dataload asyncrhonously. 
 
-        ~
+        
           GET /load?passcode=DATALOAD_PASS
-        ~
+        
 
  For the data loader to work properly we need to have the following env variables set 
  
@@ -54,13 +54,13 @@ The application is build with SailsJS and MongoDB backend.
 #### GET /api/all/stats  
   A collection of all airports stats, the collection should be ordered by the count of reviews each item in the collection should have the following information:
   
-    - Name of the airport
-    - Count of reviews
+  - Name of the airport
+  - Count of reviews
 
 Parameters :
   
-    - limit : Number of items to return
-    - offset : Number of items to offset    
+  - limit : Number of items to return
+  - offset : Number of items to offset    
     
 #### GET /api/:airport/stats
    Return stats for a selected Airport. 
