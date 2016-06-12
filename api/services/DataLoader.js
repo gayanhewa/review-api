@@ -1,3 +1,4 @@
+var request = require('request');
 var self = module.exports = {
    run: function() {
       console.log('DataLoadService');
@@ -15,11 +16,13 @@ var self = module.exports = {
      
     //record_parsed will be emitted each csv row being processed 
     converter.on("record_parsed", function (jsonObj) {
+      console.log(jsonObj);
         Reviews.create(jsonObj, function(err, item) {
            if (err) { console.log(err);return; }
            //console.log(item.author);
         }); 
     });
-    require("fs").createReadStream(process.env.AIRPORT_DATALOAD).pipe(converter);
+
+    request(process.env.AIRPORT_DATALOAD).pipe(converter);
    }
 };
