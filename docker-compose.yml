@@ -1,0 +1,10 @@
+api:
+  build: ./
+  ports:
+    - "1337:1337"
+  links:
+    - db  
+db:
+  image: cretzel/rpi-mongodb
+  volumes:
+    - db:/data/db
